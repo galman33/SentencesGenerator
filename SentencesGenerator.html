@@ -1,0 +1,63 @@
+<html dir="rtl">
+	<head>
+		<meta charset="utf-8" />
+		<title>Test</title>
+		<style type="text/css">
+@font-face {
+    font-family: myFirstFont;
+    src: url(stamsefaradclm-webfont.woff);
+}
+body
+{
+    background-image: url("bkg.jpg");
+    overflow-y:hidden;
+	height:100%;	
+}
+#text{
+	font-family: myFirstFont;
+    font-size: 50;
+    width: 100%;
+    text-align: center;
+}
+		</style>
+	</head>
+	<body>
+		<br><br><br><br><br><br>
+		<div id="text"></div><img src="yad.png"></img>
+		<script src="generator.js"></script>
+		<script>
+
+var key = Object.keys(database)[Math.floor(Math.random() * Object.keys(database).length)];
+
+var first = key.split(" ")[0];
+var second = key.split(" ")[1];
+var temp;
+
+var line = first + " " + second;
+
+//while (database[first + " " + second] != undefined)
+{
+	var i = 0;
+	while(true)
+	{
+		temp = database[first + " " + second][Math.floor(database[first + " " + second].length * Math.random())]
+		line += " " + temp;
+		first = second;
+		second = temp;
+		if (temp[temp.length - 1] == '.')
+		{
+			//alert(line);
+			//
+			i++;
+			if(i >= 4)
+				break;
+			line = "";
+			//break;
+		}
+	}
+	document.getElementById("text").innerText = '" ' + line +' " ';
+}
+
+		</script>
+	</body>
+</html>
